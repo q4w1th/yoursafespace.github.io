@@ -31,14 +31,14 @@
         }
 
         .doctor-alert {
-            background-color: #FF6347; /* Красный фон для рекомендации к врачу */
+            background-color: #FF6347; 
             color: white;
             border-radius: 5px;
             padding: 15px;
         }
 
         .treatment-alert {
-            background-color: #FF0000; /* Красный фон для лечения */
+            background-color: #FF0000; 
             color: white;
             border-radius: 5px;
             padding: 15px;
@@ -58,14 +58,14 @@
             @endforeach
         </ul>
 
-        <!-- Сообщение о состоянии здоровья с цветным фоном -->
+      
         @if($message)
             <div class="alert {{ $statusClass }} mt-3">
                 {{ $message }}
             </div>
         @endif
 
-        <!-- Лечение на красном фоне -->
+      
         @if($treatment)
             <div class="treatment-alert mt-3">
                 {{ $treatment }}

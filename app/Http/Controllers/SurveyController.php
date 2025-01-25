@@ -42,7 +42,6 @@ class SurveyController extends Controller
             ]
         ];
 
-        // Перемешиваем вопросы
         $shuffledQuestions = collect($questions)
             ->flatMap(function ($group, $groupId) {
                 return collect($group)->map(function ($question) use ($groupId) {
@@ -54,48 +53,43 @@ class SurveyController extends Controller
         return view('survey', ['questions' => $shuffledQuestions]);
     }
 
-    // В контроллере SurveyController
 
     public function submit(Request $request)
     {
         $answers = $request->input('answers');
-        $scores = [1 => 8, 2 => 8, 3 => 8];  // Начальные баллы каждой группы
+        $scores = [1 => 8, 2 => 8, 3 => 8]; 
     
-        // Обработка ответов
         foreach ($answers as $question) {
             $scores[$question['group']] += $question['score'];
         }
     
-        // Переменные для сообщений и лечения
         $message = '';
         $treatment = '';
         $doctorRecommendation = '';
-        $statusClass = 'bg-success';  // Зеленый фон по умолчанию для здоровых
+        $statusClass = 'bg-success';  
     
-        // Логика для вывода результата
         $maxScore = max($scores);
     
-        // Если ни одна группа не превышает 75%, то человек здоров
         if ($maxScore <= 8) {
             $message = 'Twój wynik sugeruje, że jesteś zdrowy.';
-            $statusClass = 'bg-success'; // Зеленый фон
+            $statusClass = 'bg-success'; 
         } else {
             if ($scores[1] == $maxScore) {
                 $message = 'Twój wynik sugeruje, że masz Depresję.';
                 $treatment = 'Zalecane leczenie: psychoterapia poznawczo-behawioralna, farmakoterapia (antydepresanty), regularna aktywność fizyczna.';
-                $statusClass = 'bg-danger'; // Красный фон
+                $statusClass = 'bg-danger'; 
             } elseif ($scores[2] == $maxScore) {
                 $message = 'Twój wynik sugeruje, że masz fobię społeczną.';
                 $treatment = 'Zalecane leczenie: terapia poznawczo-behawioralna, nauka technik relaksacyjnych.';
-                $statusClass = 'bg-danger'; // Красный фон
+                $statusClass = 'bg-danger'; 
             } elseif ($scores[3] == $maxScore) {
                 $message = 'Twój wynik sugeruje, że masz Schizofrenię.';
                 $treatment = 'Zalecane leczenie: leki przeciwpsychotyczne, terapia psychospołeczna, wsparcie rodziny.';
-                $statusClass = 'bg-danger'; // Красный фон
+                $statusClass = 'bg-danger'; 
             }
         }
     
-        // Рекомендация обратиться к врачу, если результат указывает на серьезное состояние
+    
         if ($maxScore > 8) {
             $doctorRecommendation = 'Zalecamy pilnie skonsultować się z profesjonalnym lekarzem.';
         }
@@ -105,7 +99,7 @@ class SurveyController extends Controller
             'message' => $message,
             'treatment' => $treatment,
             'doctorRecommendation' => $doctorRecommendation,
-            'statusClass' => $statusClass // Передаем класс для фона
+            'statusClass' => $statusClass
         ]);
     }
     

@@ -22,7 +22,9 @@
         }
     ],
     "require": {
-        "php": "^7.2.5 || ^8.0",
+        "php": "^8.2",
+        "laravel/framework": "^11.31",
+        "laravel/tinker": "^2.9",
         "composer/ca-bundle": "^1.5",
         "composer/class-map-generator": "^1.4.0",
         "composer/metadata-minifier": "^1.0",

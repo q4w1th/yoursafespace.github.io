@@ -1,7 +1,5 @@
 <?php
 
-namespace Tests\Feature;
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SurveyController;
 use Tests\TestCase;

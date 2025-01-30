@@ -16,15 +16,15 @@ class SurveyController extends Controller
                 "Często tracisz zainteresowanie rzeczami, które wcześniej sprawiały mi radość.",
                 "Moje myśli są bardziej negatywne lub przygnębiające niż zwykle.",
                 "Często odczuwam, że twoje emocje są poza twoją kontrolą.",
-                "Moje nastroje zmieniają się szybko и без wyraźnej przyczyny.",
+                "Moje nastroje zmieniają się szybko i bez wyraźnej przyczyny.",
                 "Czasami czuję się zbyt pobudzony/a lub rozdrażniony/a.",
-                "Trudno mi skupić się на codziennych obowiązkach."
+                "Trudno mi skupić się na codziennych obowiązkach."
             ],
             2 => [
                 "Boję się że mogę stracić kontrolę в sytuacjach społecznych.",
                 "Często obawiam się, że coś złego mi się przydarzy.",
                 "Unikam sytuacji, które wywołują у mnie lęk.",
-                "Mam natrętne myśli, które не chcą mnie opuścić.",
+                "Mam natrętne myśli, które nie chcą mnie opuścić.",
                 "Muszę wykonywać pewne czynności, aby poczuć się lepiej.",
                 "Odczuwam nagłe napady strachu lub paniki.",
                 "Często przejmuję się tym, co inni о mnie myślą.",

@@ -8,7 +8,7 @@ class SurveyController extends Controller
 {
     public function show()
     {
-        // Список вопросов для каждой группы
+
         $questions = [
             1 => [
                 "Często czuję się przygniębiony/a lub smutny/a przez większość dnia.",
